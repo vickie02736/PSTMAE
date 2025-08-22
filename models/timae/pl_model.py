@@ -106,7 +106,7 @@ class LitTiMAE(pl.LightningModule):
         x, y, mask = batch
 
         batch_size = len(x)
-        os.makedirs('logs/timae/output', exist_ok=True)
+        os.makedirs(f'logs/timae/lambda_{self.lambda_latent}/output', exist_ok=True)
 
         with torch.no_grad():
             pred, _ = self.model(x, mask)
@@ -118,7 +118,7 @@ class LitTiMAE(pl.LightningModule):
             input_ = torch.cat([x[i], y[i]], dim=0)
             output = pred[i]
             diff = torch.abs(input_ - output)
-            visualise_sequence(input_, save_path=f'logs/timae/output/input_{vi}.png')
-            visualise_sequence(output, save_path=f'logs/timae/output/predict_{vi}.png')
-            visualise_sequence(diff, save_path=f'logs/timae/output/diff_{vi}.png')
+            visualise_sequence(input_, save_path=f'logs/timae/lambda_{self.lambda_latent}/output/input_{vi}.png')
+            visualise_sequence(output, save_path=f'logs/timae/lambda_{self.lambda_latent}/output/predict_{vi}.png')
+            visualise_sequence(diff, save_path=f'logs/timae/lambda_{self.lambda_latent}/output/diff_{vi}.png')
         return pred
