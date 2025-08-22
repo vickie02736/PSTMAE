@@ -276,8 +276,8 @@ class ShallowWaterDataset(Dataset):
 
     def __init__(
         self,
-        path='/root/PSTMAE-main/utils/sw_data',
-        configs_path='/root/PSTMAE-main/utils/sw_configs.json',
+        path='/root/PSTMAE/utils/sw_data',
+        configs_path='/root/PSTMAE/utils/sw_configs.json',
         sequence_steps=15,
         forecast_steps=5,
         masking_steps=5,
