@@ -1,0 +1,8 @@
+numpy
+matplotlib
+torch
+lightning
+torchinfo
+h5py
+scikit-image
+tensorboard
